@@ -34,6 +34,10 @@ class PlatformProvider extends OrchidServiceProvider
                     return 6;
                 }),
 
+            Menu::make('Posts')
+                ->icon('tablet')
+                ->route('platform.posts.list'),
+
             Menu::make('Dropdown menu')
                 ->icon('code')
                 ->list([
