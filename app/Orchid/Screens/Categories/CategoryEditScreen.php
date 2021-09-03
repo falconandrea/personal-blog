@@ -82,6 +82,6 @@ class CategoryEditScreen extends Screen
 
         Toast::info(__('general.save_successfully'));
 
-        return redirect()->route('platform.categories.list');
+        return redirect()->route('platform.categories.edit', $category->id);
     }
 }

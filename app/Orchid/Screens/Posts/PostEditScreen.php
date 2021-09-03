@@ -89,6 +89,6 @@ class PostEditScreen extends Screen
 
         Toast::info(__('general.save_successfully'));
 
-        return redirect()->route('platform.posts.list');
+        return redirect()->route('platform.posts.edit', $post->id);
     }
 }
