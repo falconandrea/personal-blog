@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Layouts\Posts;
 
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\TextArea;
@@ -31,6 +32,13 @@ class PostsEditLayout extends Rows
                 ->rows(3)
                 ->title('Short intro')
                 ->placeholder('Enter the intro of the post'),
+
+            Cropper::make('post.image')
+                ->title('Preview image')
+                ->maxWidth(1000)
+                ->maxHeight(800)
+                ->targetRelativeUrl()
+                ->maxFileSize(1),
 
             Quill::make('post.text')
                 ->title('Main text'),
