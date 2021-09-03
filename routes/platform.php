@@ -114,11 +114,48 @@ Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('pla
 //Route::screen('idea', 'Idea::class','platform.screens.idea');
 
 // Posts
-Route::screen('posts/{post}/edit', PostEditScreen::class)->name('platform.posts.edit');
-Route::screen('posts/create', PostEditScreen::class)->name('platform.posts.create');
-Route::screen('posts', PostListScreen::class)->name('platform.posts.list');
+Route::screen('posts/{post}/edit', PostEditScreen::class)
+    ->name('platform.posts.edit')
+    ->breadcrumbs(function (Trail $trail, $post) {
+        return $trail
+            ->parent('platform.posts.list')
+            ->push(__('Edit'), route('platform.posts.edit', $post));
+    });
+Route::screen('posts/create', PostEditScreen::class)
+    ->name('platform.posts.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.posts.list')
+            ->push(__('Create'), route('platform.posts.create'));
+    });
+Route::screen('posts', PostListScreen::class)
+    ->name('platform.posts.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Posts'), route('platform.posts.list'));
+    });
+;
 
 // Categories
-Route::screen('categories/{category}/edit', CategoryEditScreen::class)->name('platform.categories.edit');
-Route::screen('categories/create', CategoryEditScreen::class)->name('platform.categories.create');
-Route::screen('categories', CategoryListScreen::class)->name('platform.categories.list');
+Route::screen('categories/{category}/edit', CategoryEditScreen::class)
+    ->name('platform.categories.edit')
+    ->breadcrumbs(function (Trail $trail, $category) {
+        return $trail
+        ->parent('platform.categories.list')
+            ->push(__('Edit'), route('platform.categories.edit', $category));
+    });
+Route::screen('categories/create', CategoryEditScreen::class)
+    ->name('platform.categories.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+        ->parent('platform.categories.list')
+            ->push(__('Create'), route('platform.categories.create'));
+    });
+Route::screen('categories', CategoryListScreen::class)
+    ->name('platform.categories.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('labels.categories'), route('platform.categories.list'));
+    });

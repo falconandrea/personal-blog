@@ -7,5 +7,5 @@ return [
     'update_date' => 'Ultima modifica',
     'short_intro' => "Breve descrizione introduttiva",
     'preview_image' => "Immagine di anteprima",
-    'categories' => "Categories"
+    'categories' => "Categorie"
 ];
