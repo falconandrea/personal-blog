@@ -1,9 +1,15 @@
 {
     "Users list": "Lista dei post",
     "New post": "Nuovo post",
+    "New category": "Nuova categoria",
     "Edit post": "Aggiorna il post",
+    "Edit category": "Aggiorna la categoria",
     "Update the post content": "Aggiorna i contenuti del post",
+    "Update the category content": "Aggiorna i contenuti della categoria",
     "Create a new post": "Crea un nuovo post",
+    "Create a new category": "Crea una nuova categoria",
     "List of all posts, published or not": "Lista dei post, pubblicati e non pubblicati",
-    "Are you sure?": "Sei sicuro?"
+    "Are you sure?": "Sei sicuro?",
+    "Categories list": "Lista delle categorie",
+    "List of post categories": "Lista delle categorie dei post"
 }

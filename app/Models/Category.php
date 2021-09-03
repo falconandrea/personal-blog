@@ -7,24 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
-class Post extends Model
+class Category extends Model
 {
     use HasFactory, AsSource, Filterable;
 
-    protected $guarded = [];
+    public $guarded = [];
 
     protected $allowedSorts = [
-        'title',
+        'name',
         'created_at',
         'updated_at'
     ];
 
     protected $allowedFilters = [
-        'title',
+        'name',
     ];
 
-    public function categories()
+    public function posts()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Post::class);
     }
 }

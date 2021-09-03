@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Categories\CategoryEditScreen;
+use App\Orchid\Screens\Categories\CategoryListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -115,3 +117,8 @@ Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('pla
 Route::screen('posts/{post}/edit', PostEditScreen::class)->name('platform.posts.edit');
 Route::screen('posts/create', PostEditScreen::class)->name('platform.posts.create');
 Route::screen('posts', PostListScreen::class)->name('platform.posts.list');
+
+// Categories
+Route::screen('categories/{category}/edit', CategoryEditScreen::class)->name('platform.categories.edit');
+Route::screen('categories/create', CategoryEditScreen::class)->name('platform.categories.create');
+Route::screen('categories', CategoryListScreen::class)->name('platform.categories.list');
