@@ -27,23 +27,23 @@ class PostsEditLayout extends Rows
                 ->type('text')
                 ->max(255)
                 ->required()
-                ->title('Title')
-                ->placeholder('Enter the title of the post'),
+                ->title(__('labels.title')),
 
             TextArea::make('post.intro')
                 ->rows(3)
-                ->title('Short intro')
-                ->placeholder('Enter the intro of the post'),
+                ->required()
+                ->title(__('labels.short_intro')),
 
             Cropper::make('post.image')
-                ->title('Preview image')
+                ->title(__('labels.preview_image'))
                 ->maxWidth(1000)
                 ->maxHeight(800)
                 ->targetRelativeUrl()
                 ->maxFileSize(1),
 
             Quill::make('post.text')
-                ->title('Main text'),
+                ->required()
+                ->title('Description'),
 
             Button::make('Save')
                 ->icon('check')

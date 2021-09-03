@@ -36,7 +36,7 @@ class PostEditScreen extends Screen
     {
         if ($post->exists) {
             $this->name = 'Edit post';
-            $this->description = 'Edit the post';
+            $this->description = 'Update the post content';
         }
         return [
             'post' => $post->exists ? $post : null
@@ -85,7 +85,7 @@ class PostEditScreen extends Screen
 
         $post->fill($request->get('post'))->save();
 
-        Toast::info('Item saved');
+        Toast::info(__('general.save_successfully'));
 
         return redirect()->route('platform.posts.list');
     }

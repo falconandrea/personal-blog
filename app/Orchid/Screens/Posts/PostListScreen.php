@@ -15,14 +15,14 @@ class PostListScreen extends Screen
      *
      * @var string
      */
-    public $name = 'Post List';
+    public $name = 'Users list';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'List of posts';
+    public $description = 'List of all posts, published or not';
 
     /**
      * Query data.
@@ -45,7 +45,7 @@ class PostListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make('Create new')
+            Link::make(__('general.create_new'))
                 ->icon('plus')
                 ->route('platform.posts.create'),
         ];
@@ -67,7 +67,7 @@ class PostListScreen extends Screen
     {
         $post->delete();
 
-        Alert::info('You have successfully deleted the item');
+        Alert::info(__('general.delete_successfully'));
 
         return redirect()->route('platform.posts.list');
     }

@@ -23,7 +23,7 @@ class PostsListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('title', 'Title')
+            TD::make('title', __('labels.title'))
                 ->sort()
                 ->filter(TD::FILTER_TEXT)
                 ->render(function (Post $post) {
@@ -31,35 +31,35 @@ class PostsListLayout extends Table
                         ->route('platform.posts.edit', $post->id);
                 }),
 
-            TD::make('updated_at', 'Last update')
+            TD::make('created_at', __('labels.creation_date'))
                 ->sort()
                 ->render(function (Post $post) {
                     return $post->updated_at->toDayDateTimeString();
                 }),
 
-            TD::make('created_at', 'Creation date')
+            TD::make('updated_at', __('labels.update_date'))
                 ->sort()
                 ->render(function (Post $post) {
                     return $post->updated_at->toDayDateTimeString();
                 }),
 
-            TD::make('Edit')
+            TD::make(__('Edit'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->render(function (Post $post) {
-                    return Link::make('Edit')
+                    return Link::make(__('Edit'))
                     ->route('platform.posts.edit', $post->id)
                     ->icon('pencil');
                 }),
 
-            TD::make('Delete')
+            TD::make(__('Delete'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->render(function (Post $post) {
-                    return Button::make('Delete')
+                    return Button::make(__('Delete'))
                         ->icon('trash')
                         ->method('remove')
-                        ->confirm('Once the post is deleted, all of its resources and data will be permanently deleted.')
+                        ->confirm(__('general.delete_message'))
                         ->parameters([
                             'id' => $post->id,
                         ]);
