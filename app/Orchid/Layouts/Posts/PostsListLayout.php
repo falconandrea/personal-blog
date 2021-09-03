@@ -31,10 +31,19 @@ class PostsListLayout extends Table
                         ->route('platform.posts.edit', $post->id);
                 }),
 
+            TD::make('categories', __('labels.categories'))
+                ->render(function (Post $post) {
+                    $temp = [];
+                    foreach ($post->categories()->get()->toArray() as $row) {
+                        $temp[] = $row['name'];
+                    }
+                    return implode(", ", $temp);
+                }),
+
             TD::make('created_at', __('labels.creation_date'))
                 ->sort()
                 ->render(function (Post $post) {
-                    return $post->updated_at->toDayDateTimeString();
+                    return $post->updated_at->format('d/m/Y');
                 }),
 
             TD::make('updated_at', __('labels.update_date'))
