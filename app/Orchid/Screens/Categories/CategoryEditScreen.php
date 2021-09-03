@@ -71,10 +71,7 @@ class CategoryEditScreen extends Screen
 
     public function save(Category $category, Request $request)
     {
-        $values = $request->get('category');
-        $values['slug'] = Str::slug($values['name']);
-
-        $request->merge(['category' => $values]);
+        $request->merge(['category' => array_merge($request->get('category'), ['slug' => Str::slug($request->input('category.name'))])]);
 
         $request->validate([
             'category.name' => ['required', 'max:255'],

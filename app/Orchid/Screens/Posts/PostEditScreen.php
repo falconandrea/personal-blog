@@ -71,19 +71,21 @@ class PostEditScreen extends Screen
 
     public function save(Post $post, Request $request)
     {
-        $values = $request->get('post');
-        $values['slug'] = Str::slug($values['title']);
-
-        $request->merge(['post' => $values]);
+        $request->merge(['post' => array_merge($request->get('post'), ['slug' => Str::slug($request->input('post.title'))])]);
 
         $request->validate([
             'post.title' => ['required', 'max:255'],
             'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)],
             'post.intro' => ['required'],
-            'post.text' => ['required']
+            'post.text' => ['required'],
+            'post.categories' => ['required', 'array', 'min:1']
         ]);
 
-        $post->fill($request->get('post'))->save();
+        $post->categories()->sync($request->input('post.categories'));
+
+        $values = $request->get('post');
+        unset($values['categories']);
+        $post->fill($values)->save();
 
         Toast::info(__('general.save_successfully'));
 

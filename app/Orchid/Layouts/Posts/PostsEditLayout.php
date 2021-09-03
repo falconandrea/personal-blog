@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Orchid\Layouts\Posts;
 
+use App\Models\Category;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Support\Color;
@@ -28,6 +30,11 @@ class PostsEditLayout extends Rows
                 ->max(255)
                 ->required()
                 ->title(__('labels.title')),
+
+            Relation::make('post.categories')
+                ->fromModel(Category::class, 'name')
+                ->multiple()
+                ->title(__('labels.categories')),
 
             TextArea::make('post.intro')
                 ->rows(3)
