@@ -78,7 +78,9 @@ class PostEditScreen extends Screen
 
         $request->validate([
             'post.title' => ['required', 'max:255'],
-            'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)]
+            'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)],
+            'post.intro' => ['required'],
+            'post.text' => ['required']
         ]);
 
         $post->fill($request->get('post'))->save();

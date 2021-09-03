@@ -6,6 +6,7 @@ namespace App\Orchid\Layouts\Posts;
 
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
 
@@ -26,10 +27,13 @@ class PostsEditLayout extends Rows
                 ->title('Title')
                 ->placeholder('Enter the title of the post'),
 
-            TextArea::make('post.description')
+            TextArea::make('post.intro')
                 ->rows(3)
-                ->title('Description')
-                ->placeholder('Enter the text of the post'),
+                ->title('Short intro')
+                ->placeholder('Enter the intro of the post'),
+
+            Quill::make('post.text')
+                ->title('Main text'),
         ];
     }
 }
