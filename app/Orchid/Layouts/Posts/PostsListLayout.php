@@ -34,13 +34,13 @@ class PostsListLayout extends Table
             TD::make('updated_at', 'Last update')
                 ->sort()
                 ->render(function (Post $post) {
-                    return $post->updated_at->toDateTimeString();
+                    return $post->updated_at->toDayDateTimeString();
                 }),
 
             TD::make('created_at', 'Creation date')
                 ->sort()
                 ->render(function (Post $post) {
-                    return $post->updated_at->toDateTimeString();
+                    return $post->updated_at->toDayDateTimeString();
                 }),
 
             TD::make('Edit')
