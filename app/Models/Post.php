@@ -12,4 +12,14 @@ class Post extends Model
     use HasFactory, AsSource, Filterable;
 
     protected $guarded = [];
+
+    protected $allowedSorts = [
+        'title',
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $allowedFilters = [
+        'title',
+    ];
 }

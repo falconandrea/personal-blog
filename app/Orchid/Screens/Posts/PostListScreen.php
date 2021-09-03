@@ -31,7 +31,7 @@ class PostListScreen extends Screen
      */
     public function query(): array
     {
-        $posts = Post::defaultSort('title')->filters()->paginate(10);
+        $posts = Post::filters()->defaultSort('title')->paginate(10);
         return [
             'posts' => $posts,
         ];

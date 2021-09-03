@@ -24,10 +24,10 @@ class PostsListLayout extends Table
     {
         return [
             TD::make('title', 'Title')
+                ->sort()
+                ->filter(TD::FILTER_TEXT)
                 ->render(function (Post $post) {
                     return Link::make($post->title)
-                        ->sort()
-                        ->filter(TD::FILTER_TEXT)
                         ->route('platform.posts.edit', $post->id);
                 }),
 
