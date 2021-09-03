@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Orchid\Layouts\Posts;
 
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Support\Color;
 
 class PostsEditLayout extends Rows
 {
@@ -42,6 +44,11 @@ class PostsEditLayout extends Rows
 
             Quill::make('post.text')
                 ->title('Main text'),
+
+            Button::make('Save')
+                ->icon('check')
+                ->type(Color::DEFAULT())
+                ->method('save'),
         ];
     }
 }
