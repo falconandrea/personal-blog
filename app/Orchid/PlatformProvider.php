@@ -26,6 +26,13 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
+            Menu::make('Posts')
+                ->icon('speech')
+                ->list([
+                    Menu::make('Posts')->icon('speech')->route('platform.posts.list'),
+                    Menu::make(__('labels.tags'))->icon('text-left')->route('platform.tags.list'),
+                ]),
+/*
             Menu::make('Example screen')
                 ->icon('monitor')
                 ->route('platform.example')
@@ -33,13 +40,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->badge(function () {
                     return 6;
                 }),
-
-            Menu::make('Posts')
-                ->icon('speech')
-                ->list([
-                    Menu::make('Posts')->icon('speech')->route('platform.posts.list'),
-                    Menu::make(__('labels.tags'))->icon('text-left')->route('platform.tags.list'),
-                ]),
 
             Menu::make('Dropdown menu')
                 ->icon('code')
@@ -87,7 +87,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->badge(function () {
                     return Dashboard::version();
                 }, Color::DARK()),
-
+*/
             Menu::make(__('Users'))
                 ->icon('user')
                 ->route('platform.systems.users')
