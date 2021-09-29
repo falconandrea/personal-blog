@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Orchid\Screens\Categories;
+namespace App\Orchid\Screens\Tags;
 
-use App\Models\Category;
-use App\Orchid\Layouts\Categories\CategoriesListLayout;
+use App\Models\Tag;
+use App\Orchid\Layouts\Tags\TagsListLayout;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
-class CategoryListScreen extends Screen
+class TagListScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Categories list';
+    public $name = 'Tags list';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'List of post categories';
+    public $description = 'List of post tags';
 
     /**
      * Query data.
@@ -31,9 +31,9 @@ class CategoryListScreen extends Screen
      */
     public function query(): array
     {
-        $categories = Category::filters()->defaultSort('name')->paginate(10);
+        $tags = Tag::filters()->defaultSort('name')->paginate(10);
         return [
-            'categories' => $categories,
+            'tags' => $tags,
         ];
     }
 
@@ -47,7 +47,7 @@ class CategoryListScreen extends Screen
         return [
             Link::make(__('general.create_new'))
                 ->icon('plus')
-                ->route('platform.categories.create'),
+                ->route('platform.tags.create'),
         ];
     }
 
@@ -59,16 +59,16 @@ class CategoryListScreen extends Screen
     public function layout(): array
     {
         return [
-            CategoriesListLayout::class,
+            TagsListLayout::class,
         ];
     }
 
-    public function remove(Category $category)
+    public function remove(Tag $tag)
     {
-        $category->delete();
+        $tag->delete();
 
         Alert::info(__('general.delete_successfully'));
 
-        return redirect()->route('platform.categories.list');
+        return redirect()->route('platform.tags.list');
     }
 }

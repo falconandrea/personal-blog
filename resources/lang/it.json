@@ -1,15 +1,15 @@
 {
     "Users list": "Lista dei post",
     "New post": "Nuovo post",
-    "New category": "Nuova categoria",
+    "New tag": "Nuovo tag",
     "Edit post": "Aggiorna il post",
-    "Edit category": "Aggiorna la categoria",
+    "Edit tag": "Aggiorna il tag",
     "Update the post content": "Aggiorna i contenuti del post",
-    "Update the category content": "Aggiorna i contenuti della categoria",
+    "Update the tag content": "Aggiorna i contenuti del tag",
     "Create a new post": "Crea un nuovo post",
-    "Create a new category": "Crea una nuova categoria",
+    "Create a new tag": "Crea una nuovo tag",
     "List of all posts, published or not": "Lista dei post, pubblicati e non pubblicati",
     "Are you sure?": "Sei sicuro?",
-    "Categories list": "Lista delle categorie",
-    "List of post categories": "Lista delle categorie dei post"
+    "Tags list": "Lista dei tag",
+    "List of post tags": "Lista dei tag dei post"
 }

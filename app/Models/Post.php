@@ -23,8 +23,8 @@ class Post extends Model
         'title',
     ];
 
-    public function categories()
+    public function tags()
     {
-        return $this->belongsToMany(Category::class, 'post_category');
+        return $this->belongsToMany(Tag::class, 'post_tag');
     }
 }

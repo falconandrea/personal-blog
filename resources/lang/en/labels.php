@@ -7,5 +7,5 @@ return [
     'update_date' => 'Last edit',
     'short_intro' => "Brief introductory description",
     'preview_image' => "Preview image",
-    'categories' => "Categories"
+    'tags' => "Tag"
 ];

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Layouts\Posts;
 
-use App\Models\Category;
+use App\Models\Tag;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Cropper;
@@ -31,10 +31,10 @@ class PostsEditLayout extends Rows
                 ->required()
                 ->title(__('labels.title')),
 
-            Relation::make('post.categories')
-                ->fromModel(Category::class, 'name')
+            Relation::make('post.tags')
+                ->fromModel(Tag::class, 'name')
                 ->multiple()
-                ->title(__('labels.categories')),
+                ->title(__('labels.tags')),
 
             TextArea::make('post.intro')
                 ->rows(3)

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
             $table->string('name');
             $table->timestamps();
         });
 
-        Schema::create('post_category', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id');
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->unsignedBigInteger('tag_id');
             $table->unsignedBigInteger('post_id');
-            $table->primary(['category_id', 'post_id']);
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->primary(['tag_id', 'post_id']);
+            $table->foreign('tag_id')->references('id')->on('tags')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -36,7 +36,7 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_category');
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('tags');
     }
 }

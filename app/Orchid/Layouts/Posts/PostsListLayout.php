@@ -31,10 +31,10 @@ class PostsListLayout extends Table
                         ->route('platform.posts.edit', $post->id);
                 }),
 
-            TD::make('categories', __('labels.categories'))
+            TD::make('tags', __('labels.tags'))
                 ->render(function (Post $post) {
                     $temp = [];
-                    foreach ($post->categories()->get()->toArray() as $row) {
+                    foreach ($post->tags()->get()->toArray() as $row) {
                         $temp[] = $row['name'];
                     }
                     return implode(", ", $temp);

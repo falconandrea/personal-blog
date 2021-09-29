@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Categories\CategoryEditScreen;
-use App\Orchid\Screens\Categories\CategoryListScreen;
+use App\Orchid\Screens\Tags\TagEditScreen;
+use App\Orchid\Screens\Tags\TagListScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -137,25 +137,25 @@ Route::screen('posts', PostListScreen::class)
     });
 ;
 
-// Categories
-Route::screen('categories/{category}/edit', CategoryEditScreen::class)
-    ->name('platform.categories.edit')
-    ->breadcrumbs(function (Trail $trail, $category) {
+// Tags
+Route::screen('tags/{tag}/edit', TagEditScreen::class)
+    ->name('platform.tags.edit')
+    ->breadcrumbs(function (Trail $trail, $tag) {
         return $trail
-        ->parent('platform.categories.list')
-            ->push(__('Edit'), route('platform.categories.edit', $category));
+        ->parent('platform.tags.list')
+            ->push(__('Edit'), route('platform.tags.edit', $tag));
     });
-Route::screen('categories/create', CategoryEditScreen::class)
-    ->name('platform.categories.create')
+Route::screen('tags/create', TagEditScreen::class)
+    ->name('platform.tags.create')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-        ->parent('platform.categories.list')
-            ->push(__('Create'), route('platform.categories.create'));
+        ->parent('platform.tags.list')
+            ->push(__('Create'), route('platform.tags.create'));
     });
-Route::screen('categories', CategoryListScreen::class)
-    ->name('platform.categories.list')
+Route::screen('tags', TagListScreen::class)
+    ->name('platform.tags.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.index')
-            ->push(__('labels.categories'), route('platform.categories.list'));
+            ->push(__('labels.tags'), route('platform.tags.list'));
     });

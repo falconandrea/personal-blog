@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Layouts\Categories;
+namespace App\Orchid\Layouts\Tags;
 
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Field;
@@ -10,7 +10,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Support\Color;
 
-class CategoriesEditLayout extends Rows
+class TagsEditLayout extends Rows
 {
     /**
      * Views.
@@ -20,7 +20,7 @@ class CategoriesEditLayout extends Rows
     public function fields(): array
     {
         return [
-            Input::make('category.name')
+            Input::make('tag.name')
                 ->type('text')
                 ->max(255)
                 ->required()

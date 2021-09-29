@@ -38,7 +38,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('speech')
                 ->list([
                     Menu::make('Posts')->icon('speech')->route('platform.posts.list'),
-                    Menu::make(__('labels.categories'))->icon('text-left')->route('platform.categories.list'),
+                    Menu::make(__('labels.tags'))->icon('text-left')->route('platform.tags.list'),
                 ]),
 
             Menu::make('Dropdown menu')

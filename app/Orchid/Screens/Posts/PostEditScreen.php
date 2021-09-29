@@ -78,14 +78,16 @@ class PostEditScreen extends Screen
             'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)],
             'post.intro' => ['required'],
             'post.text' => ['required'],
-            'post.categories' => ['required', 'array', 'min:1']
+            'post.tags' => ['required', 'array', 'min:1']
         ]);
 
-        $post->categories()->sync($request->input('post.categories'));
-
         $values = $request->get('post');
-        unset($values['categories']);
+        $tags = $values['tags'];
+        unset($values['tags']);
+
         $post->fill($values)->save();
+
+        $post->tags()->sync($tags);
 
         Toast::info(__('general.save_successfully'));
 
