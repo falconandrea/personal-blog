@@ -3,23 +3,24 @@ version: "3"
 services:
   app:
     build:
-      args:
-        user: admin_user
-        uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: admin
-    container_name: admin-app
-    restart: unless-stopped
-    working_dir: /var/www/
     volumes:
       - ./:/var/www
+      - ./php-prod.ini:/usr/local/etc/php/conf.d/local.ini
+    image: blog-admin
+    container_name: admin
+    restart: unless-stopped
+    working_dir: /var/www/
     networks:
-      - admin
+      - app-network
   mysql:
     image: "mysql:8.0"
     container_name: admin-mysql
     restart: unless-stopped
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./mysql.prod.cnf:/etc/mysql/my.cnf
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -28,18 +29,22 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
-      - admin
+      - app-network
   nginx:
-    image: nginx:1.17-alpine
+    image: nginx:alpine
     container_name: admin-nginx
     restart: unless-stopped
     ports:
-      - 8000:80
+      - 80:80
+      - 443:443
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
-      - admin
+      - app-network
 networks:
-  admin:
+  app-network:
     driver: bridge
+volumes:
+  dbdata:
+    driver: local
