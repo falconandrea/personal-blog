@@ -1,5 +1,10 @@
 # For more information: https://laravel.com/docs/sail
 version: "3"
+networks:
+  web:
+    external: true # traefik reverse proxy
+  internal:
+    external: false
 services:
   app:
     build:
@@ -13,7 +18,9 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     networks:
-      - app-network
+      - internal
+    labels:
+      - "traefik.enable=false"
   mysql:
     image: mysql:5.7.22
     container_name: admin-mysql
@@ -29,27 +36,26 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     networks:
-      - app-network
+      - internal
+    labels:
+      - "traefik.enable=false"
   nginx:
     image: nginx:alpine
     container_name: admin-nginx
     restart: unless-stopped
     ports:
-      - 80:80
-      - 443:443
+      - 80
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
-      - app-network
+      - web
+      - internal
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.admin-nginx.rule=Host(`admin.andreafalcon.dev`)"
       - "traefik.http.routers.admin-nginx.entrypoints=websecure"
       - "traefik.http.routers.admin-nginx.tls.certresolver=letsencrypt"
-networks:
-  app-network:
-    driver: bridge
 volumes:
   dbdata:
     driver: local
