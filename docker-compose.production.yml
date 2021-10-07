@@ -13,8 +13,8 @@ services:
     volumes:
       - ./:/var/www
       - ./php-prod.ini:/usr/local/etc/php/conf.d/local.ini
-    image: blog-admin
-    container_name: admin
+    image: website
+    container_name: website
     restart: unless-stopped
     working_dir: /var/www/
     networks:
@@ -23,7 +23,7 @@ services:
       - "traefik.enable=false"
   mysql:
     image: mysql:5.7.22
-    container_name: admin-mysql
+    container_name: mysql
     restart: unless-stopped
     volumes:
       - dbdata:/var/lib/mysql
@@ -41,7 +41,7 @@ services:
       - "traefik.enable=false"
   nginx:
     image: nginx:alpine
-    container_name: admin-nginx
+    container_name: nginx
     restart: unless-stopped
     ports:
       - 80
@@ -53,9 +53,9 @@ services:
       - internal
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.admin-nginx.rule=Host(`admin.andreafalcon.dev`)"
-      - "traefik.http.routers.admin-nginx.entrypoints=websecure"
-      - "traefik.http.routers.admin-nginx.tls.certresolver=le"
+      - "traefik.http.routers.website.rule=Host(`andreafalcon.dev`)"
+      - "traefik.http.routers.website.entrypoints=websecure"
+      - "traefik.http.routers.website.tls.certresolver=le"
 volumes:
   dbdata:
     driver: local
