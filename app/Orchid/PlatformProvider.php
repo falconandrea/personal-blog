@@ -2,6 +2,7 @@
 
 namespace App\Orchid;
 
+use Illuminate\Support\Facades\URL;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -16,8 +17,9 @@ class PlatformProvider extends OrchidServiceProvider
     public function boot(Dashboard $dashboard): void
     {
         parent::boot($dashboard);
-
-        // ...
+        if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+            URL::forceScheme('https');
+        }
     }
 
     /**
