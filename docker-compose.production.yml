@@ -55,7 +55,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.admin-nginx.rule=Host(`admin.andreafalcon.dev`)"
       - "traefik.http.routers.admin-nginx.entrypoints=websecure"
-      - "traefik.http.routers.admin-nginx.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.admin-nginx.tls.certresolver=le"
 volumes:
   dbdata:
     driver: local
