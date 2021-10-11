@@ -4,11 +4,13 @@ namespace App\Orchid\Screens\Posts;
 
 use App\Models\Post;
 use App\Orchid\Layouts\Posts\PostsEditLayout;
+use App\Orchid\Layouts\Posts\PostsEditLayoutSEO;
 use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
 class PostEditScreen extends Screen
@@ -65,7 +67,10 @@ class PostEditScreen extends Screen
     public function layout(): array
     {
         return [
-            PostsEditLayout::class
+            Layout::tabs([
+                'Dati generali' => PostsEditLayout::class,
+                'SEO' => PostsEditLayoutSEO::class
+            ])
         ];
     }
 
@@ -78,7 +83,9 @@ class PostEditScreen extends Screen
             'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)],
             'post.intro' => ['required'],
             'post.text' => ['required'],
-            'post.tags' => ['required', 'array', 'min:1']
+            'post.tags' => ['required', 'array', 'min:1'],
+            'post.seo_title' => ['max:255'],
+            'post.seo_description' => ['max:255']
         ]);
 
         $values = $request->get('post');
