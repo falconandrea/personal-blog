@@ -55,6 +55,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.website.rule=Host(`andreafalcon.dev`)"
       - "traefik.http.routers.website.entrypoints=websecure"
+      - "traefik.docker.network=web"
       - "traefik.http.routers.website.tls.certresolver=le"
 volumes:
   dbdata:
