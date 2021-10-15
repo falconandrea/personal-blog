@@ -40,7 +40,7 @@ services:
     labels:
       - "traefik.enable=false"
   nginx:
-    image: nginx:alpine
+    image: nginx:stable-alpine
     container_name: nginx
     restart: unless-stopped
     ports:
