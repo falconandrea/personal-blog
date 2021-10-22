@@ -3,6 +3,8 @@
 return [
     'title' => 'Title',
     'name' => 'Name',
+    'date' => 'Data',
+    'published' => 'Published',
     'creation_date' => 'Creation date',
     'update_date' => 'Last edit',
     'short_intro' => "Brief introductory description",

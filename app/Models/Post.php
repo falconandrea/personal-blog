@@ -13,9 +13,13 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $dates = ['date'];
+
+    protected $casts = ['published' => 'boolean'];
+
     protected $allowedSorts = [
         'title',
-        'created_at',
+        'date',
         'updated_at'
     ];
 

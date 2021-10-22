@@ -13,6 +13,8 @@ use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\DateTimer;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Support\Color;
 
 class PostsEditLayout extends Rows
@@ -25,6 +27,10 @@ class PostsEditLayout extends Rows
     public function fields(): array
     {
         return [
+            CheckBox::make('post.published')
+                ->title(__('labels.published'))
+                ->sendTrueOrFalse(),
+
             Input::make('post.title')
                 ->type('text')
                 ->max(255)
@@ -35,6 +41,11 @@ class PostsEditLayout extends Rows
                 ->fromModel(Tag::class, 'name')
                 ->multiple()
                 ->title(__('labels.tags')),
+
+            DateTimer::make('post.date')
+                ->title(__('labels.date'))
+                ->required()
+                ->format('Y-m-d'),
 
             TextArea::make('post.intro')
                 ->rows(3)

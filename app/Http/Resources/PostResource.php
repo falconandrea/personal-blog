@@ -19,6 +19,8 @@ class PostResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => Str::slug($this->title),
+            'published' => $this->published,
+            'date' => $this->date->format('d/m/Y'),
             'intro' => $this->intro,
             'text' => $this->text,
             'seo_title' => $this->seo_title,

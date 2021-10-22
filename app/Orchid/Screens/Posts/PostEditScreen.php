@@ -82,6 +82,8 @@ class PostEditScreen extends Screen
             'post.title' => ['required', 'max:255'],
             'post.slug' => ['required', Rule::unique(Post::class, 'slug')->ignore($post)],
             'post.intro' => ['required'],
+            'post.published' => ['boolean'],
+            'post.date' => ['required', 'date_format:Y-m-d'],
             'post.text' => ['required'],
             'post.tags' => ['required', 'array', 'min:1'],
             'post.seo_title' => ['max:255'],
