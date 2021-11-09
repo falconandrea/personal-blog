@@ -13,7 +13,8 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::where('published', 1)
+        $posts = Post::where('published', 1)->latest();
+        $posts
             ->when($request->input('tag'), function ($query, $tag) {
                 $query->whereHas('tags', function ($query) use ($tag) {
                     $query->where("slug", $tag);
@@ -21,8 +22,7 @@ class PostController extends Controller
             })
             ->when($request->input('search'), function ($query, $search) {
                 $query->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%");
-            })
-            ->latest();
+            });
 
         return PostResource::collection($posts->get());
     }
