@@ -26,10 +26,10 @@ class PostController extends Controller
         return PostResource::collection($posts->get());
     }
 
-    public function show($post)
+    public function show($slug)
     {
         try {
-            $post = Post::findOrFail($post);
+            $post = Post::where('slug', $slug)->first();
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'message' => 'Item not found',
