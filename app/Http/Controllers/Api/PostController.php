@@ -13,15 +13,16 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::where('published', '=', 1);
-        if ($request->has('tag') && $request->input('tag') != '') {
-            $posts = $posts->whereHas('tags', function (Builder $query) use ($request) {
-                $query->where('slug', $request->input('tag'));
+        $posts = Post::sortable(['created_at' => 'desc'])
+            ->where('published', 1)
+            ->when($request->has('tag') && $request->input('tag') != '', function ($query, $tag) {
+                return $query->whereHas('tags', function ($query) use ($tag) {
+                    $query->where("slug", $tag);
+                });
+            })
+            ->when($request->has('search') && $request->input('search') != '', function ($query, $search) {
+                return $query->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%");
             });
-        }
-        if ($request->has('search') && $request->input('search') != '') {
-            $posts = $posts->where('title', 'like', '%' . $request->input('search') . '%')->orWhere('text', 'like', '%' . $request->input('search') . '%');
-        }
 
         return PostResource::collection($posts->get());
     }
