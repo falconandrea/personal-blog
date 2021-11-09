@@ -14,12 +14,12 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = Post::where('published', 1)
-            ->when($request->has('tag'), function ($query, $tag) {
+            ->when($request->input('tag'), function ($query, $tag) {
                 $query->whereHas('tags', function ($query) use ($tag) {
                     $query->where("slug", $tag);
                 });
             })
-            ->when($request->has('search'), function ($query, $search) {
+            ->when($request->input('search'), function ($query, $search) {
                 $query->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%");
             })
             ->latest();
