@@ -13,15 +13,14 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::where('published', 1)->latest();
-        $posts
+        $posts = Post::latest()->where('published', 1)
             ->when($request->input('tag'), function ($query, $tag) {
-                $query->whereHas('tags', function ($query) use ($tag) {
+                return $query->whereHas('tags', function ($query) use ($tag) {
                     $query->where("slug", $tag);
                 });
             })
             ->when($request->input('search'), function ($query, $search) {
-                $query->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%");
+                return $query->where('title', 'LIKE', "%{$search}%")->orWhere('text', 'LIKE', "%{$search}%");
             });
 
         return PostResource::collection($posts->get());
