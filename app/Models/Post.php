@@ -27,6 +27,13 @@ class Post extends Model
         'title',
     ];
 
+    public $appends = ['format_date'];
+
+    public function getFormatDateAttribute()
+    {
+        return $this->created_at->format('d/m/Y');
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tag');
