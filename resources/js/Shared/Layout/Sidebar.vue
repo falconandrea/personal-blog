@@ -10,7 +10,6 @@
           Cerca
       </button>
     </form>
-
     <h3 class="mt-8 mb-2 text-xl">Tags</h3>
     <ListTags :tags=tags></ListTags>
   </div>
@@ -18,38 +17,15 @@
 
 <script>
 import ListTags from '../ListTags.vue'
+import { usePage } from '@inertiajs/inertia-vue3'
 export default {
   components: {
     ListTags
   },
-  data () {
-    return {
-      tags: []
-    }
-  },
-  computed: {
-    formPath() {
-      // return process.env.BASE_PATH + 'posts';
-      return '/posts'
-    },
-  },
-  created() {
-    // Get tags
-    this.getTags()
-  },
-  methods: {
-    async getTags() {
-        return this.tags = []
-        /*
-      await this.$axios.get('tags')
-        .then((response) => {
-          this.tags = response.data.data
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-        */
-    }
+  data() {
+      return {
+          tags: usePage().props.value.tags
+      }
   }
 }
 </script>
