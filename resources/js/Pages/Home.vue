@@ -1,5 +1,5 @@
 <template>
-  <ListPosts :posts="posts"></ListPosts>
+  <ListPosts :posts="posts" :filters="filters"></ListPosts>
 </template>
 
 <script>
@@ -9,7 +9,8 @@ export default {
     ListPosts
   },
   props: {
-      posts: Object
+      posts: Object,
+      filters: Object
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div class="p-4 w-full lg:w-2/3">
-    <p v-if="search">Hai cercato: <i>{{ search }}</i></p>
+    <p v-if="filters.search">Hai cercato: <i>{{ filters.search }}</i></p>
+    <p v-if="filters.tag">Hai cercato: <i>{{ filters.tag }}</i></p>
     <template v-if="posts.data.length > 0">
         <template :key="post.id" v-for="post in posts.data">
             <ShortPost :post="post" />
@@ -23,12 +24,12 @@
 <script>
 import ShortPost from './ShortPost.vue'
 export default {
-  components: {
-    ShortPost
-  },
-  props: {
-    posts: Object,
-    search: String
-  }
+    components: {
+        ShortPost
+    },
+    props: {
+        posts: Object,
+        filters: Object
+    }
 }
 </script>
