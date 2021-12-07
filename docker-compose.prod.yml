@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: blog
-    container_name: blog-app
+    container_name: blog
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -14,9 +14,9 @@ services:
     networks:
       - blog
 
-  db:
+  mysql:
     image: mysql:5.7
-    container_name: blog-db
+    container_name: mysql
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -33,7 +33,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: blog-nginx
+    container_name: nginx
     restart: unless-stopped
     ports:
       - "80:80"
