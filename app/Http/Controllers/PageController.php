@@ -29,10 +29,14 @@ class PageController extends Controller
 
     public function show($slug)
     {
+        $post = Post::with(['tags'])
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        // Fix Pre tag for highlight in front-end
+        $post->text = str_replace(['<pre class="ql-syntax" spellcheck="false">', '</pre>'], ['<pre class="language-html"><code>', '</code></pre>'], $post->text);
         return inertia('Post', [
-            'post' => Post::with(['tags'])
-                ->where('slug', $slug)
-                ->firstOrFail(),
+            'post' => $post,
         ]);
     }
 }

@@ -27,6 +27,7 @@
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-vue3": "^0.5.2",
         "@inertiajs/progress": "^0.2.6",
-        "vue": "^3.2.23"
+        "vue": "^3.2.23",
+        "vue-code-highlight": "^0.7.8"
     }
 }

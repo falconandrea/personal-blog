@@ -7,11 +7,12 @@
         <p><small>{{ post.format_date }}</small></p>
         <h1 class="text-gray-700 font-medium text-3xl py-4">{{ post.title }}</h1>
         <ListTags :tags="post.tags"></ListTags>
-        <div class="text-gray-500 py-4 container-post" v-html="post.text"></div>
+        <div v-highlight class="text-gray-500 py-4 container-post" v-html="post.text"></div>
     </div>
 </template>
 
 <script>
+import 'vue-code-highlight/themes/prism-dark.css'
 import ListTags from '../Shared/ListTags.vue'
 export default {
   components: {

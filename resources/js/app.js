@@ -4,6 +4,7 @@ import { InertiaProgress } from '@inertiajs/progress'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueCodeHighlight from 'vue-code-highlight'
 import Layout from './Shared/Layout/Layout.vue'
 
 library.add(faLinkedinIn)
@@ -19,6 +20,7 @@ createInertiaApp({
   setup ({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .use(VueCodeHighlight)
       .component('Link', Link)
       .component('Head', Head)
       .component('font-awesome-icon', FontAwesomeIcon)
