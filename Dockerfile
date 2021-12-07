@@ -7,7 +7,8 @@ COPY composer.lock composer.json /var/www/html/
 WORKDIR /var/www/html/
 
 # Install dependencies for the operating system software
-RUN apt-get update && apt-get install -y \
+RUN apt-get update
+RUN apt-get install -y \
     build-essential \
     libpng-dev \
     libjpeg62-turbo-dev \
