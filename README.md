@@ -18,6 +18,7 @@ DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_USERNAME=laravel
 DB_PASSWORD=password
+DOMAIN=mydomain.dev
 ```
 
 Install PHP and NPM dependencies

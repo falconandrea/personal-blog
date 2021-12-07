@@ -43,10 +43,19 @@ services:
       - ./docker/nginx/:/etc/nginx/conf.d/
     networks:
       - blog
+    # Labels for traefik
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.basic.frontend.rule=Host:${DOMAIN}"
+      - "traefik.basic.port=9000"
+      - "traefik.basic.protocol=https"
 
 networks:
   blog:
     driver: bridge
+  web:
+    external: true
 volumes:
   dbdata:
     driver: local
