@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <title>{{ post.seo_title }}</title>
+        <meta name="description" :content="post.seo_description" head-key="description" />
+    </Head>
     <div class="p-4 w-full lg:w-2/3 pt-8">
         <p><small>{{ post.format_date }}</small></p>
         <h1 class="text-gray-700 font-medium text-3xl py-4">{{ post.title }}</h1>
@@ -8,7 +12,6 @@
 </template>
 
 <script>
-
 import ListTags from '../Shared/ListTags.vue'
 export default {
   components: {
