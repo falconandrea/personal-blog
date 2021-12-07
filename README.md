@@ -45,6 +45,24 @@ sail artisan orchid:admin admin admin@admin.com password
 
 Backend is now up on `http://localhost/admin`.
 
+## For Production
+
+After git clone project, copy `.env.example` file in `.env` and run
+
+```
+docker-compose -f docker-compose.prod.yml up -d
+```
+
+After containers are run, enter in `blog` container and run
+
+```
+composer update
+php artisan migrate
+php artisan key:generate
+php artisan config:cache
+php artisan storage:link
+```
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
