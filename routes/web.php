@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,4 +15,5 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [PageController::class, 'index']);
+Route::get('/post/{slug}', [PageController::class, 'show']);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Support\Facades\Request;
 
-class HomeController extends Controller
+class PageController extends Controller
 {
     public function index()
     {
@@ -24,6 +24,15 @@ class HomeController extends Controller
                 })
                 ->paginate(5)
                 ->withQueryString(),
+        ]);
+    }
+
+    public function show($slug)
+    {
+        return inertia('Post', [
+            'post' => Post::with(['tags'])
+                ->where('slug', $slug)
+                ->firstOrFail(),
         ]);
     }
 }
