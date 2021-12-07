@@ -47,9 +47,9 @@ services:
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.basic.frontend.rule=Host:${DOMAIN}"
-      - "traefik.basic.port=9000"
-      - "traefik.basic.protocol=https"
+      - "traefik.http.routers.whoami.rule=Host(`$DOMAIN`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
 
 networks:
   blog:
