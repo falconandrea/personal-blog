@@ -44,7 +44,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nginx.rule=Host(`$DOMAIN`)"
-      - "traefik.http.routers.nginx.entrypoints=websecure"
+      - "traefik.http.routers.nginx.entrypoints=web"
       - "traefik.http.routers.nginx.tls.certresolver=le"
 
 networks:
