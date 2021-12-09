@@ -43,6 +43,7 @@ services:
     # Labels for traefik
     labels:
       - "traefik.enable=true"
+      - "traefik.port=80"
       - "traefik.http.routers.nginx.rule=Host(`$DOMAIN`)"
       - "traefik.http.routers.nginx.entrypoints=web"
       - "traefik.http.services.nginx.loadbalancer.server.port=80"
