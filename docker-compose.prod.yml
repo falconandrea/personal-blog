@@ -35,18 +35,21 @@ services:
     image: nginx:alpine
     container_name: nginx
     restart: unless-stopped
+    ports:
+      - 80
     volumes:
       - ./:/var/www
       - ./docker/nginx/:/etc/nginx/conf.d/
     networks:
       - blog
+      - web
     # Labels for traefik
     labels:
       - "traefik.enable=true"
+      - "traefik.network=web"
       - "traefik.port=80"
       - "traefik.http.routers.nginx.rule=Host(`$DOMAIN`)"
-      - "traefik.http.routers.nginx.entrypoints=web"
-      - "traefik.http.services.nginx.loadbalancer.server.port=80"
+      - "traefik.http.routers.nginx.entrypoints=websecure"
       - "traefik.http.routers.nginx.tls.certresolver=le"
 
 networks:
