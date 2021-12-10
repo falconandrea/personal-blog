@@ -53,6 +53,8 @@ services:
       - "traefik.http.routers.nginx.tls.certresolver=le"
 
 networks:
+  web:
+    driver: bridge
   blog:
     driver: bridge
 volumes:
