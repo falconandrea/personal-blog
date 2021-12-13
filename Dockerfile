@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
     jpegoptim optipng pngquant gifsicle \
     unzip \
     git \
+    nodejs \
+    npm \
     vim \
     curl \
     libzip-dev \
