@@ -7,9 +7,9 @@ services:
     image: blog
     container_name: blog
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /var/www/html
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
       - ./docker/php.ini:/usr/local/etc/php/conf.d/laravel.ini
     networks:
       - blog
@@ -36,7 +36,7 @@ services:
     container_name: nginx
     restart: unless-stopped
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
       - ./docker/nginx/:/etc/nginx/conf.d/
     networks:
       - blog
