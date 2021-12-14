@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Http\Resources\TagResource;
 use App\Models\Tag;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -40,6 +41,8 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'tags' => Tag::all('id', 'name', 'slug'),
+            'seo_title' => fn (MetaInterface $meta) => ($meta->toArray()['head'][0]['content']),
+            'seo_description' => fn (MetaInterface $meta) => ($meta->toArray()['head'][4]['content']),
         ]);
     }
 }

@@ -1,7 +1,6 @@
 <template>
-    <Head>
-        <title>{{ post.seo_title }}</title>
-        <meta name="description" :content="post.seo_description" head-key="description" />
+    <Head :title="$page.props.seo_title">
+        <meta name="description" :content="$page.props.seo_description" head-key="description" />
     </Head>
     <div class="p-4 w-full lg:w-2/3 pt-8">
         <p><small>{{ post.format_date }}</small></p>

@@ -41,6 +41,6 @@ return [
 
     'charset' => 'utf-8',
     'robots' => null,
-    'viewport' => Viewport::RESPONSIVE,
-    'csrf_token' => true,
+    'viewport' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
+    'csrf_token' => true
 ];

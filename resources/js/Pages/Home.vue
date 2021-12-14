@@ -1,7 +1,6 @@
 <template>
-    <Head>
-        <title>Home</title>
-        <meta name="description" content="Mi chiamo Andrea Falcon e sono uno sviluppatore Web Full-Stack. Ho deciso di creare questo blog per tener traccia delle tecnologie e conoscenze che apprendo durante la mia formazione." head-key="description" />
+    <Head :title="$page.props.seo_title">
+        <meta name="description" :content="$page.props.seo_description" head-key="description" />
     </Head>
     <ListPosts :posts="posts" :filters="filters"></ListPosts>
 </template>
