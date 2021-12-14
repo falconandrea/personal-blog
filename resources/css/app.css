@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 
 /* ./resources/css/app.css */
 @tailwind base;
@@ -11,4 +11,8 @@ body {
 }
 #app {
     font-family: "Roboto", sans-serif;
+}
+
+strong {
+    font-weight: 700;
 }

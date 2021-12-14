@@ -25,8 +25,7 @@ createInertiaApp({
       .component('Head', Head)
       .component('font-awesome-icon', FontAwesomeIcon)
       .mount(el)
-  },
-  title: title => `${title} - AndreaFalcon.Dev`
+  }
 })
 
 InertiaProgress.init({
