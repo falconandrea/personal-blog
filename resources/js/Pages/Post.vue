@@ -3,8 +3,8 @@
         <meta name="description" :content="$page.props.seo_description" head-key="description" />
     </Head>
     <div class="p-4 w-full lg:w-2/3 pt-8">
-        <p><small>{{ post.format_date }}</small></p>
-        <h1 class="text-gray-700 font-medium text-3xl py-4">{{ post.title }}</h1>
+        <h1 class="text-gray-700 font-medium text-3xl">{{ post.title }}</h1>
+        <p class="pb-2"><small>{{ post.format_date }}</small></p>
         <ListTags :tags="post.tags"></ListTags>
         <div v-highlight class="text-gray-500 py-4 container-post" v-html="post.text"></div>
     </div>
