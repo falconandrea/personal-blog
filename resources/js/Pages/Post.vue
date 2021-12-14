@@ -33,5 +33,10 @@ export default {
   }
   .container-post pre {
       border: none;
+      box-shadow: none;
+      text-shadow: none;
+  }
+  .container-post pre code {
+      text-shadow: none;
   }
 </style>
