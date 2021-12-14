@@ -31,7 +31,7 @@ class Post extends Model
 
     public function getFormatDateAttribute()
     {
-        return $this->created_at->format('d/m/Y');
+        return $this->date->format('d/m/Y');
     }
 
     public function tags()
