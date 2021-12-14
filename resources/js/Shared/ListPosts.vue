@@ -1,7 +1,8 @@
 <template>
   <div class="p-4 w-full lg:w-2/3">
-    <p v-if="filters.search">Hai cercato: <i>{{ filters.search }}</i></p>
-    <p v-if="filters.tag">Hai cercato: <i>{{ filters.tag }}</i></p>
+    <h1 class="mt-4 mb-2 text-xl" v-if="!filters.search && !filters.tag">Ultimi post</h1>
+    <h1 class="mt-4 mb-2 text-xl" v-if="filters.search">Hai cercato: <i>{{ filters.search }}</i></h1>
+    <h1 class="mt-4 mb-2 text-xl" v-if="filters.tag">Contenuti relativi al tag: <i>{{ filters.tag }}</i></h1>
     <template v-if="posts.data.length > 0">
         <template :key="post.id" v-for="post in posts.data">
             <ShortPost :post="post" />

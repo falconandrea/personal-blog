@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
   <head>
     {!! str_replace('<title>','<title inertia>', Meta::toHtml()) !!}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
