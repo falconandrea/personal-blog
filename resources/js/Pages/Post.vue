@@ -31,4 +31,7 @@ export default {
   .container-post b {
     font-weight: 500;
   }
+  .container-post pre {
+      border: none;
+  }
 </style>

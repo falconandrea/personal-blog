@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-blue-100">
     <div class="container flex mx-auto p-4">
-      <p class="w-8/12">&copy; 2021 Falcon Andrea</p>
+      <p class="w-8/12"><small>&copy; 2021 Falcon Andrea / Made with Laravel and InertiaJs</small></p>
       <p class="w-4/12 text-right">
         <a class="mr-4" href="https://www.linkedin.com/in/andrea-falcon-fullstack-developer/" title="Facebook" target="_blank">
           <font-awesome-icon class="hover:text-blue-500" :icon="['fab', 'linkedin-in']" />
