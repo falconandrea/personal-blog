@@ -29,7 +29,7 @@ export default {
   }
   .container-post strong,
   .container-post b {
-    font-weight: 500;
+    font-weight: 700;
   }
   .container-post pre {
       border: none;
