@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueCodeHighlight from 'vue-code-highlight'
 import VueGtag from 'vue-gtag'
 import Layout from './Shared/Layout/Layout.vue'
+import { Inertia } from '@inertiajs/inertia'
 
 library.add(faLinkedinIn)
 library.add(faGithub)
@@ -35,4 +36,10 @@ createInertiaApp({
 InertiaProgress.init({
   color: 'blue',
   showSpinner: true
+})
+
+Inertia.on('navigate', (event) => {
+  gtag('event', 'page_view', {
+    page_location: event.detail.page.url
+  })
 })
