@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3'
+import { createInertiaApp, Link, Head, usePage } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -46,6 +46,6 @@ InertiaProgress.init({
 Inertia.on('navigate', (event) => {
   gtag('event', 'page_view', {
     page_location: event.detail.page.url,
-    send_to: this.page.props.gtag
+    send_to: usePage().props.gtag
   })
 })
