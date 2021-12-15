@@ -24,7 +24,12 @@ createInertiaApp({
       .use(plugin)
       .use(VueCodeHighlight)
       .use(VueGtag, {
-        config: { id: props.initialPage.props.gtag }
+        config: {
+          id: props.initialPage.props.gtag,
+          params: {
+            send_page_view: false
+          }
+        }
       })
       .component('Link', Link)
       .component('Head', Head)
@@ -40,6 +45,7 @@ InertiaProgress.init({
 
 Inertia.on('navigate', (event) => {
   gtag('event', 'page_view', {
-    page_location: event.detail.page.url
+    page_location: event.detail.page.url,
+    send_to: this.page.props.gtag
   })
 })
