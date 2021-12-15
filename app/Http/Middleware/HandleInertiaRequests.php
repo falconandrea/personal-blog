@@ -43,6 +43,7 @@ class HandleInertiaRequests extends Middleware
             'tags' => Tag::all('id', 'name', 'slug'),
             'seo_title' => fn (MetaInterface $meta) => ($meta->toArray()['head'][0]['content']),
             'seo_description' => fn (MetaInterface $meta) => ($meta->toArray()['head'][4]['content']),
+            'gtag' => config('gtag.gtag-code')
         ]);
     }
 }
