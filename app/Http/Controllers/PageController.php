@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -55,7 +56,7 @@ class PageController extends Controller
            ->setDescription($post->seo_description);
 
         // Fix Pre tag for highlight in front-end
-        $post->text = str_replace(['<pre class="ql-syntax" spellcheck="false">', '</pre>'], ['<pre class="language-html"><code>', '</code></pre>'], $post->text);
+        $post->text = str_replace(['<pre>'], ['<pre class="language-html">'], Str::of($post->text)->markdown());
         return inertia('Post', [
             'post' => $post,
         ]);
