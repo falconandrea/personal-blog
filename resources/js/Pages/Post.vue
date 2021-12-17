@@ -39,4 +39,7 @@ export default {
   .container-post pre code {
       text-shadow: none;
   }
+  .container-post p{
+      margin-top: 1rem;
+  }
 </style>
