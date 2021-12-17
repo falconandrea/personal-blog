@@ -9,12 +9,12 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\CheckBox;
+use Orchid\Screen\Fields\SimpleMDE;
 use Orchid\Support\Color;
 
 class PostsEditLayout extends Rows
@@ -59,7 +59,7 @@ class PostsEditLayout extends Rows
                 ->targetRelativeUrl()
                 ->maxFileSize(1),
 
-            Quill::make('post.text')
+            SimpleMDE::make('post.text')
                 ->required()
                 ->title('Description'),
 
