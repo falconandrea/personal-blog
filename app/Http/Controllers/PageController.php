@@ -57,6 +57,8 @@ class PageController extends Controller
 
         // Fix Pre tag for highlight in front-end
         $post->text = str_replace(['<pre>', '<p><code>', '</code></p>'], ['<pre class="language-html">', '<pre class="language-html"><code>', '</code></pre>'], Str::of($post->text)->markdown());
+        // Fix bold convert ** to strong
+        $post->text = preg_replace("/\*\*(.*?)\*\*/", "<strong>$1</strong>", $post->text);
         return inertia('Post', [
             'post' => $post,
         ]);
