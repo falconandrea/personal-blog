@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .container-post a {
     text-decoration: underline;
   }
@@ -41,5 +41,9 @@ export default {
   }
   .container-post p{
       margin-top: 1rem;
+  }
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
   }
 </style>
