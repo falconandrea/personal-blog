@@ -59,6 +59,11 @@ class PageController extends Controller
         $post->text = str_replace(['<pre>', '<p><code>', '</code></p>'], ['<pre class="language-html">', '<pre class="language-html"><code>', '</code></pre>'], Str::of($post->text)->markdown());
         // Fix bold convert ** to strong
         $post->text = preg_replace("/\*\*(.*?)\*\*/", "<strong>$1</strong>", $post->text);
+        // Fix h1 to h3
+        $post->text = str_replace(['<h1>', '</h1>'], ['<h3 class="text-gray-700 font-medium text-2xl mt-4">', '</h3>'], $post->text);
+        // Fix list style
+        $post->text = str_replace('<ul>', '<ul class="list-disc list-inside">', $post->text);
+
         return inertia('Post', [
             'post' => $post,
         ]);
