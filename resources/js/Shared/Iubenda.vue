@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 #iubendalink{
-    margin-left: 0.5rem !important;
     display: inline-block !important;
 }
 </style>
