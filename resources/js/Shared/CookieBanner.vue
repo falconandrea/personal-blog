@@ -61,7 +61,7 @@ export default {
 <style>
     .cookie-comply,
     .cookie-comply__modal{
-        position: fixed;
+        position: fixed !important;
     }
     .cookie-comply__modal-header {
         text-align: center;
