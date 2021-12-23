@@ -12,10 +12,14 @@
       </p>
     </div>
   </footer>
+  <CookieBanner />
 </template>
 
 <script>
+import CookieBanner from '../CookieBanner.vue'
 export default {
-
+    components: {
+        CookieBanner
+    }
 }
 </script>

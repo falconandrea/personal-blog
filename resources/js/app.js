@@ -7,11 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueCodeHighlight from 'vue-code-highlight'
 import VueGtag from 'vue-gtag'
 import Layout from './Shared/Layout/Layout.vue'
+import VueCookieComply from 'vue-cookie-comply'
+import 'vue-cookie-comply/dist/style.css'
 import { Inertia } from '@inertiajs/inertia'
 
 library.add(faLinkedinIn)
 library.add(faGithub)
 dom.watch()
+
+// Check cookie consent
+const cookieAccepted = JSON.parse(localStorage.getItem('cookie-comply')) || []
 
 createInertiaApp({
   resolve: name => {
@@ -23,13 +28,17 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(VueCodeHighlight)
+      .use(VueCookieComply)
       .use(VueGtag, {
         config: {
           id: props.initialPage.props.gtag,
           params: {
             send_page_view: false
           }
-        }
+        },
+        enabled: cookieAccepted.includes('ga'),
+        bootstrap: cookieAccepted.includes('ga'),
+        pageTrackerScreenviewEnabled: true
       })
       .component('Link', Link)
       .component('Head', Head)
@@ -43,9 +52,11 @@ InertiaProgress.init({
   showSpinner: true
 })
 
-Inertia.on('navigate', (event) => {
-  gtag('event', 'page_view', {
-    page_location: event.detail.page.url,
-    send_to: usePage().props.gtag
+if (cookieAccepted.includes('ga')) {
+  Inertia.on('navigate', (event) => {
+    gtag('event', 'page_view', {
+      page_location: event.detail.page.url,
+      send_to: usePage().props.gtag
+    })
   })
-})
+}
