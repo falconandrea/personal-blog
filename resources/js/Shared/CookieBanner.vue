@@ -59,6 +59,10 @@ export default {
 </script>
 
 <style>
+    .cookie-comply,
+    .cookie-comply__modal{
+        position: fixed;
+    }
     .cookie-comply__modal-header {
         text-align: center;
     }
