@@ -60,7 +60,6 @@ class PostsEditLayout extends Rows
                 ->maxFileSize(1),
 
             SimpleMDE::make('post.text')
-                ->required()
                 ->title('Description'),
 
             Button::make('Save')
