@@ -11,7 +11,7 @@
         <p class="pt-2 text-gray-500">Vengono usati dei cookie tecnici per migliorare l'esperienza e l'uso del sito web. Vengono usati anche dei cookie di analisi e statistiche (Tag Manager e Google Analytics) per capire il comportamento e la navigazione che viene fatta sul sito. Questi dati non sono in grado di identificarvi personalmente.</p>
         <h3 class="mt-4 mb-2 text-lg">I cookie usati</h3>
         <h4 class="mt-4 mb-2 text-md">Cookies necessari e tecnici</h4>
-        <ul><li class="text-sm">- orchidblog_session</li><li class="text-sm">- XSRF-TOKEN</li></ul>
+        <ul><li class="text-sm">- blog_session</li><li class="text-sm">- XSRF-TOKEN</li></ul>
         <p class="pt-1 text-gray-500">Questi cookie sono necessari per il corretto funzionamento del sito web e vengono usati per ottimizzare la navigazione. Vengono usati per identificare la navigazione dell'utente e per garantire la sicurezza da attacchi cross-site request forgery (CSRF).</p>
         <h4 class="mt-4 mb-2 text-md">Cookie di prestazioni</h4>
         <ul><li class="text-sm">- _ga</li><li class="text-sm">- _gid</li><li class="text-sm">- _ga_********</li></ul>
