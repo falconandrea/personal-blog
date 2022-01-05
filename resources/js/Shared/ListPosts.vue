@@ -8,13 +8,15 @@
             <ShortPost :post="post" />
         </template>
         <template v-if="posts.links.length > 3">
-            <div v-for="link in posts.links" :key="link.label">
-                <Link
-                    :href="link.url"
-                    v-html="link.label"
-                    v-if="link.url"
-                    class="mx-4"
-                    :class="{ 'font-bold underline': link.active }" />
+            <div class="flex justify-center mt-4 w-full">
+                <div v-for="link in posts.links" :key="link.label">
+                    <Link
+                        :href="link.url"
+                        v-html="link.label"
+                        v-if="link.url"
+                        class="mx-4"
+                        :class="{ 'font-bold underline': link.active }" />
+                </div>
             </div>
         </template>
     </template>
