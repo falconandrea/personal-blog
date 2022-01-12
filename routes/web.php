@@ -18,6 +18,5 @@ use Inertia\Inertia;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/post/{slug}', [PageController::class, 'show']);
-Route::get('/cookie-policy', [PageController::class, 'cookie']);
 
 Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);

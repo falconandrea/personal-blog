@@ -5,8 +5,6 @@
         <small>&copy; 2021 Falcon Andrea / Made with Laravel, InertiaJs and Tailwind.</small>
         /
         <Iubenda />
-        /
-        <Link href="/cookie-policy" title="Cookie policy" class="text-sm ml-1 underline">Cookie Policy</Link>
       </p>
       <p class="w-4/12 text-right">
         <a class="mr-4" href="https://www.linkedin.com/in/andrea-falcon-fullstack-developer/" title="Linkedin" target="_blank">
@@ -18,15 +16,13 @@
       </p>
     </div>
   </footer>
-  <CookieBanner />
 </template>
 
 <script>
-import CookieBanner from '../CookieBanner.vue'
 import Iubenda from '../Iubenda.vue'
 export default {
     components: {
-        CookieBanner, Iubenda
+        Iubenda
     }
 }
 </script>

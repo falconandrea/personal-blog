@@ -76,12 +76,4 @@ class PageController extends Controller
             'post' => $post,
         ]);
     }
-
-    public function cookie()
-    {
-        Meta::setTitle('Cookie Policy - AndreaFalcon.dev')
-           ->setDescription("La lista dei cookie presenti in questo sito web");
-
-        return inertia('Cookie');
-    }
 }
