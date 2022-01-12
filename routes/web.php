@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SitemapXmlController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,3 +19,5 @@ use Inertia\Inertia;
 Route::get('/', [PageController::class, 'index']);
 Route::get('/post/{slug}', [PageController::class, 'show']);
 Route::get('/cookie-policy', [PageController::class, 'cookie']);
+
+Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
