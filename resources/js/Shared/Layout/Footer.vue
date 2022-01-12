@@ -9,7 +9,7 @@
         <Link href="/cookie-policy" title="Cookie policy" class="text-sm ml-1 underline">Cookie Policy</Link>
       </p>
       <p class="w-4/12 text-right">
-        <a class="mr-4" href="https://www.linkedin.com/in/andrea-falcon-fullstack-developer/" title="Facebook" target="_blank">
+        <a class="mr-4" href="https://www.linkedin.com/in/andrea-falcon-fullstack-developer/" title="Linkedin" target="_blank">
           <font-awesome-icon class="hover:text-blue-500" :icon="['fab', 'linkedin-in']" />
         </a>
         <a href="https://github.com/falconandrea" title="Github" target="_blank">
