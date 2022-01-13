@@ -43,10 +43,3 @@ InertiaProgress.init({
   color: 'blue',
   showSpinner: true
 })
-
-Inertia.on('navigate', (event) => {
-    gtag('event', 'page_view', {
-        page_location: event.detail.page.url,
-        send_to: usePage().props.gtag
-    })
-})
