@@ -43,12 +43,3 @@ InertiaProgress.init({
   color: 'blue',
   showSpinner: true
 })
-
-Inertia.on('navigate', (event) => {
-  dataLayer.push({
-    event: 'pageview',
-    page: {
-      path: event.detail.page.url
-    }
-  })
-})
