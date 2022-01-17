@@ -13,7 +13,8 @@
         "inertiajs/inertia-laravel": "^0.4.5",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "orchid/platform": "^10.10"
+        "orchid/platform": "^10.10",
+        "spatie/laravel-googletagmanager": "^2.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
