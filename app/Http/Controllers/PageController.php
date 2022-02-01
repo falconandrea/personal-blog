@@ -57,14 +57,6 @@ class PageController extends Controller
 
         // Convert markdown to html
         $post->text = Str::of($post->text)->markdown();
-        // Fix Language code for highlight in front-end
-        $post->text = str_replace(
-            ['<pre><code class="language-php">', '<pre><code class="language-html">', '<pre><code class="language-css">', '<pre><code class="language-javascript">', '<pre><code class="language-bash">'],
-            ['<pre class="language-php"><code>', '<pre class="language-html"><code>', '<pre class="language-css"><code>', '<pre class="language-javascript"><code>', '<pre class="language-bash"><code>'],
-            $post->text
-        );
-        // Fix inine Pre tag for highlight in front-end
-        $post->text = str_replace(['<p><code>', '</code></p>'], ['<pre class="language-bash"><code>', '</code></pre>'], $post->text);
         // Fix bold convert ** to strong
         $post->text = preg_replace("/\*\*(.*?)\*\*/", "<strong>$1</strong>", $post->text);
         // Fix h1 to h3
