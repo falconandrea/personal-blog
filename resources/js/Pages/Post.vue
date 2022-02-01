@@ -41,6 +41,10 @@ export default {
   .container-post pre code {
       text-shadow: none;
   }
+  .container-post pre code[class*=language-],
+  .container-post pre pre[class*=language-]{
+      tab-size: 2;
+  }
   .container-post p{
       margin-top: 1rem;
   }
