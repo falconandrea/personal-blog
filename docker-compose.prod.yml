@@ -47,12 +47,13 @@ services:
       - "traefik.port=80"
       - "traefik.network=traefik-global-proxy"
       - "traefik.http.routers.nginx.rule=Host(`$DOMAIN`) || Host(`www.$DOMAIN`)"
-      - "traefik.http.middlewares.test-redirectregex.redirectregex.regex=^https://www.(.*)"
-      - "traefik.http.middlewares.test-redirectregex.redirectregex.replacement=https://$${1}"
+      - "traefik.http.middlewares.www-redirect-regex.redirectregex.regex=^https://www.(.*)"
+      - "traefik.http.middlewares.www-redirect-regex.redirectregex.replacement=https://$${1}"
+      - "traefik.http.middlewares.www-redirect-regex.redirectregex.permanent=true"
       - "traefik.http.routers.nginx.entrypoints=websecure"
       - "traefik.http.routers.nginx.tls.certresolver=le"
       - "traefik.http.middlewares.nginx_gzip_compress.compress=true"
-      - "traefik.http.routers.nginx.middlewares=nginx_gzip_compress"
+      - "traefik.http.routers.nginx.middlewares=nginx_gzip_compress,www-redirect-regex"
 
 networks:
   traefik-global-proxy:
