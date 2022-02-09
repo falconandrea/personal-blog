@@ -65,7 +65,7 @@ return [
                 'dump_binary_path' => '/usr/bin', // only the path, so without `mysqldump` or `pg_dump`
                 'use_single_transaction',
                 'timeout' => 60 * 5, // 5 minute timeout
-                'add_extra_option' => '--skip-ssl --column-statistics=0', // for example '--column-statistics=0'
+                'add_extra_option' => '--skip-ssl', // for example '--column-statistics=0'
              ]
         ],
 
