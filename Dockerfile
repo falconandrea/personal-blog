@@ -43,6 +43,11 @@ RUN useradd -u 1000 -ms /bin/bash -g laravel laravel
 # Copy existing application directory contents to the working directory
 COPY --chown=laravel:laravel . /var/www/html
 
+# Copy crontab
+COPY crontab /etc/cron.d/laravel-cron
+RUN chmod 0644 /etc/cron.d/laravel-cron
+RUN crontab /etc/cron.d/laravel-cron
+
 # Change current user to laravel
 USER laravel
 
