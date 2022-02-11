@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75717f605a282554001631eea828bd3c",
+    "content-hash": "69c25195d845851f9f1440b9d6d71722",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -124,16 +124,16 @@
         },
         {
             "name": "butschster/meta-tags",
-            "version": "v2.2",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/butschster/LaravelMetaTags.git",
-                "reference": "6f199a276ba4f701e01209b79d869f5074118271"
+                "reference": "43d144b7b703675a68abd434ea22ae9a66113455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/butschster/LaravelMetaTags/zipball/6f199a276ba4f701e01209b79d869f5074118271",
-                "reference": "6f199a276ba4f701e01209b79d869f5074118271",
+                "url": "https://api.github.com/repos/butschster/LaravelMetaTags/zipball/43d144b7b703675a68abd434ea22ae9a66113455",
+                "reference": "43d144b7b703675a68abd434ea22ae9a66113455",
                 "shasum": ""
             },
             "require": {
@@ -185,7 +185,7 @@
             ],
             "support": {
                 "issues": "https://github.com/butschster/LaravelMetaTags/issues",
-                "source": "https://github.com/butschster/LaravelMetaTags/tree/v2.2"
+                "source": "https://github.com/butschster/LaravelMetaTags/tree/v2.2.1"
             },
             "funding": [
                 {
@@ -197,7 +197,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-02-08T19:23:34+00:00"
+            "time": "2022-02-10T10:17:07+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -2508,16 +2508,16 @@
         },
         {
             "name": "orchid/platform",
-            "version": "10.31.0",
+            "version": "11.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchidsoftware/platform.git",
-                "reference": "616deea2623eb9be714626b1828ba71c6644ef62"
+                "reference": "2bd5e92b0b67d1440dbe3b360b88555f0bfdbe86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/616deea2623eb9be714626b1828ba71c6644ef62",
-                "reference": "616deea2623eb9be714626b1828ba71c6644ef62",
+                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/2bd5e92b0b67d1440dbe3b360b88555f0bfdbe86",
+                "reference": "2bd5e92b0b67d1440dbe3b360b88555f0bfdbe86",
                 "shasum": ""
             },
             "require": {
@@ -2613,7 +2613,7 @@
                     "type": "opencollective"
                 }
             ],
-            "time": "2022-01-22T16:26:20+00:00"
+            "time": "2022-02-06T18:05:39+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3456,12 +3456,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Spatie\\Backup\\": "src"
-                },
                 "files": [
                     "src/Helpers/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Spatie\\Backup\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -8434,16 +8434,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49"
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/23bd5951f7ff26f12d4e3242864df3e08dec4e49",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
                 "shasum": ""
             },
             "require": {
@@ -8486,7 +8486,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.3"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.4"
             },
             "funding": [
                 {
@@ -8494,7 +8494,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-11T13:31:12+00:00"
+            "time": "2022-02-10T07:01:19+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
