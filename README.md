@@ -2,7 +2,9 @@
 
 # Info about the project
 
-Blog created with Orchid Laravel (for the backend) and Inertia.js (for the frontend).
+My Personal Blog created with Orchid Laravel (for the backend) and Inertia.js (for the frontend).
+
+[AndreaFalcon.Dev](https://andreafalcon.dev)
 
 ## Initial config
 
