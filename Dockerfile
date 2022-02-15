@@ -43,19 +43,6 @@ RUN useradd -u 1000 -ms /bin/bash -g laravel laravel
 # Copy existing application directory contents to the working directory
 COPY --chown=laravel:laravel . /var/www/html
 
-# Copy crontab
-COPY crontab /etc/cron.d/laravel-cron
-RUN chmod 0644 /etc/cron.d/laravel-cron
-
-# Install crontab
-RUN apt-get update && apt-get install -y cron
-
-# Create the log file to be able to run tail
-RUN touch /var/log/cron.log
-
-# Run the command on container startup
-CMD /etc/init.d/cron start && tail -f /var/log/cron.log
-
 # Change current user to laravel
 USER laravel
 
