@@ -48,7 +48,7 @@ COPY crontab /etc/cron.d/laravel-cron
 RUN chmod 0644 /etc/cron.d/laravel-cron
 
 # Install crontab
-RUN apt-get install -y cron
+RUN apt-get update && apt-get install -y cron
 
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
