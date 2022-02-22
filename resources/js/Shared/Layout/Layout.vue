@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import Header from './Header.vue'
-import Footer from './Footer.vue'
-import Sidebar from './Sidebar.vue'
+import Header from '@/Shared/Layout/Header.vue'
+import Footer from '@/Shared/Layout/Footer.vue'
+import Sidebar from '@/Shared/Layout/Sidebar.vue'
 export default {
     components: {
         Header, Footer, Sidebar

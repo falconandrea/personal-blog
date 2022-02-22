@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Iubenda from '../Iubenda.vue'
+import Iubenda from '@/Shared/Iubenda.vue'
 export default {
     components: {
         Iubenda

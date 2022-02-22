@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ListPosts from '../Shared/ListPosts.vue'
+import ListPosts from '@/Shared/ListPosts.vue'
 export default {
   components: {
     ListPosts

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ShortPost from './ShortPost.vue'
+import ShortPost from '@/Shared/ShortPost.vue'
 export default {
     components: {
         ShortPost

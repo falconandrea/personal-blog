@@ -14,7 +14,7 @@
 import 'vue-code-highlight/themes/prism-tomorrow.css'
 import 'prism-es6/components/prism-markup-templating'
 import 'prism-es6/components/prism-php'
-import ListTags from '../Shared/ListTags.vue'
+import ListTags from '@/Shared/ListTags.vue'
 export default {
   components: {
     ListTags

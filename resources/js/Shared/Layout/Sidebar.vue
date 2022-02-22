@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import ListTags from '../ListTags.vue'
-import SearchForm from '../SearchForm.vue'
+import ListTags from '@/Shared/ListTags.vue'
+import SearchForm from '@/Shared/SearchForm.vue'
 import { usePage } from '@inertiajs/inertia-vue3'
 export default {
   components: {

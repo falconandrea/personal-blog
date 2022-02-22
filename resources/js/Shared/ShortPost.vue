@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ListTags from './ListTags.vue'
+import ListTags from '@/Shared/ListTags.vue'
 export default {
   components: {
     ListTags
