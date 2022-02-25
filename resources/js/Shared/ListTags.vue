@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row">
+  <div class="flex flex-wrap">
     <template v-for="tag in tags" :key="tag.slug">
       <Tag :tag="tag"></Tag>
     </template>
