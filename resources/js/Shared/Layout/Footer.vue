@@ -24,10 +24,10 @@ export default {
     components: {
         Iubenda
     },
-    computed: {
-        showIubenda() {
-            return usePage().props.value.iubenda && usePage().props.value.iubenda != ''
-        }
+    data() {
+      return {
+          showIubenda: usePage().props.value.iubenda && usePage().props.value.iubenda != ''
+      }
     }
 }
 </script>
