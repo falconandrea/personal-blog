@@ -1,4 +1,5 @@
 <template>
+    /
     <a :href="iubendaLink" id="iubendalink" class="iubenda-noiframe iubenda-embed iubenda-noiframe" title="Privacy Policy ">Privacy Policy</a> /
     <a :href="iubendaCookieLink" id="iubendaCookieLink" class="no-brand iubenda-noiframe iubenda-embed iubenda-noiframe" title="Cookie Policy ">Cookie Policy</a>
 </template>
